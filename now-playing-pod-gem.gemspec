@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'now-playing-pod-gem'
-  s.version     = '1.0.0'
+  s.version     = '1.0.1'
   s.date        = '2016-09-01'
   s.summary     = "Now Playing Podcast Listings"
   s.description = "This Gem lists all of Now Playing's Podcasts with title, description and links to a playable mp3"
