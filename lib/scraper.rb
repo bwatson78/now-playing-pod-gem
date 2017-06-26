@@ -18,7 +18,7 @@ class Movie
     PAGE.css('item').each do |movie|
       self.new({
         title: movie.css('title').text,
-        description: movie.css('description').text,
+        description: movie.css('description').text.gsub(/<\/?[^>]*>/, ""),
         link: movie.css('enclosure').attr('url').value
       })
       # movie_title = movie.css('title').text

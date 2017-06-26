@@ -10,7 +10,7 @@ class CommandLineInterface
   end
 
   def self.podcast_list(movie_array)
-    puts "PODCAST LIST"
+    puts "\n\nPODCAST LIST"
     movie_array.each_with_index do |movie, index|
       puts "     #{index + 1}.     #{movie.title}"
     end
@@ -25,27 +25,23 @@ class CommandLineInterface
     puts "\nLink: #{movie_array[response.to_i - 1].link}"
   end
 
-    def self.another_movie?
-      answer = ""
-      until answer.downcase == "n" || answer.downcase == "no"
-        puts ""
-        puts "Would you like to find details of another movie?"
-        puts "Please respond yes or no:"
-        answer = gets.chomp
-        if answer.downcase == "y" || answer.downcase == "yes"
-          podcast_list(Movie.all)
-          get_movie_details(Movie.all)
-        elsif answer.downcase == "n" || answer.downcase == "no"
-          puts ""
-          puts "Thank You For Using Now Playing Podcast GEM"
-          puts "Please pass this along to your friends!"
-        else
-          "Please enter yes or no."
-        end
+  def self.another_movie?
+    answer = ""
+    until answer.downcase == "n" || answer.downcase == "no"
+      self.another_blurb
+      answer = gets.chomp
+      if answer.downcase == "y" || answer.downcase == "yes"
+        podcast_list(Movie.all)
+        get_movie_details(Movie.all)
+      elsif answer.downcase == "n" || answer.downcase == "no"
+        self.ex_blurb
+      else
+        "Please enter yes or no."
       end
     end
+  end
 
-    private
+  private
 
     def self.greeting
       puts "Hello, and welcome to the Now Playing Podcast GEM!"
@@ -64,17 +60,26 @@ class CommandLineInterface
       puts "one new review each week, but Now Playing also holds donation drives bi-annually"
       puts "to cover costs. During those drives, bonus podcasts are distributed to donors."
       puts "Please check out their donation web page at http://www.nowplayingpodcast.com/donate.htm"
-      puts "to see if you're interested in the additional reviews that come with your donation.\n\n"
+      puts "to see if you're interested in the additional reviews that come with your donation."
     end
 
     def self.detail_directions
       puts "To see the description of the review and the direct link of the podcast's mp3,"
-      puts "please enter the podcast number in the space below:\n"
+      puts "please enter the podcast number in the space below:"
     end
 
     def self.detail_link_blurb
       puts "\nTo listen to this podcast directly through the browser on your computer,"
-      puts "please copy and paste the link below into it's address bar:\n"
+      puts "please copy and paste the link below into it's address bar:"
     end
 
+    def self.another_blurb
+      puts "\nWould you like to find details of another movie?"
+      puts "Please respond yes or no:"
+    end
+
+    def self.ex_blurb
+      puts "\nThank You For Using Now Playing Podcast GEM"
+      puts "Please pass this along to your friends!"
+    end
 end
