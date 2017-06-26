@@ -3,29 +3,10 @@ require_relative "../lib/scraper.rb"
 class CommandLineInterface
   attr_reader :movie
 
-  def self.greeting
-    puts "Hello, and welcome to the Now Playing Podcast GEM!"
-    puts ""
-  end
-
-  def self.about
-    puts "The Now Playing Podcast is one of the most popular movie review podcasts available."
-    puts "Each week, Arnie, Stuart, and Jakob tackle a new movie and let you know whether to"
-    puts "skip that flick or buy a ticket (or digital copy)!"
-    puts ""
-    puts "What makes these guys better than the rest?"
-    puts "Why, laser-sharp sarcastic humor and mounds of cursing--that's what!"
-    puts ""
-  end
-
-  def self.side_note
-    puts "SIDE NOTE: They have hundreds of reviews available to you right now, and at least"
-    puts "one new review each week, but Now Playing also holds donation drives bi-annually"
-    puts "to cover costs. During those drives, bonus podcasts are distributed to donors."
-    puts "Please check out their donation web page at http://www.nowplayingpodcast.com/donate.htm"
-    puts "to see if you're interested in the additional reviews that come with your donation."
-    puts ""
-    puts ""
+  def self.opening
+    self.greeting
+    self.about
+    self.side_note
   end
 
   def self.podcast_list(movie_array)
@@ -69,5 +50,31 @@ class CommandLineInterface
       end
     end
 
+    private
 
-  end
+    def self.greeting
+      puts "Hello, and welcome to the Now Playing Podcast GEM!"
+      puts ""
+    end
+
+    def self.about
+      puts "The Now Playing Podcast is one of the most popular movie review podcasts available."
+      puts "Each week, Arnie, Stuart, and Jakob tackle a new movie and let you know whether to"
+      puts "skip that flick or buy a ticket (or digital copy)!"
+      puts ""
+      puts "What makes these guys better than the rest?"
+      puts "Why, laser-sharp sarcastic humor and mounds of cursing--that's what!"
+      puts ""
+    end
+
+    def self.side_note
+      puts "SIDE NOTE: They have hundreds of reviews available to you right now, and at least"
+      puts "one new review each week, but Now Playing also holds donation drives bi-annually"
+      puts "to cover costs. During those drives, bonus podcasts are distributed to donors."
+      puts "Please check out their donation web page at http://www.nowplayingpodcast.com/donate.htm"
+      puts "to see if you're interested in the additional reviews that come with your donation."
+      puts ""
+      puts ""
+    end
+
+end

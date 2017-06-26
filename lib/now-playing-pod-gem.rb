@@ -9,9 +9,7 @@ class NowPlayingPodGem
     Movie.sort_movies
 
     #These display the opening descriptors and instructions
-    CommandLineInterface.greeting
-    CommandLineInterface.about
-    CommandLineInterface.side_note
+    CommandLineInterface.opening
 
     #Display the podcast list
     CommandLineInterface.podcast_list(Movie.all)
@@ -21,7 +19,7 @@ class NowPlayingPodGem
 
     #This gives option of seeing another movie's details or exit program
     CommandLineInterface.another_movie?
-    
+
   end
 
 end
