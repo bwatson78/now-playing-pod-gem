@@ -30,7 +30,6 @@ class Movie
 
   def self.sort_movies
     @@all.sort_by!{ |movie| movie.title.downcase }
-    # @movies = movies_sorted
   end
 
   def self.all
